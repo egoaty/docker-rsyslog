@@ -14,8 +14,8 @@ if ! id ${user} >/dev/null 2>&1; then
         adduser -h / -H -D -G "${group}" -u "${PUID:=100000}" "${user}"
 fi
 
-mkdir /log
-chown ${user}:${group} /log
+# Start crond in background (for logrotate)
+crond || exit 1
 
 # Run Maraschino in foreground
 runcmd="rsyslogd -n"
