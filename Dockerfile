@@ -13,5 +13,5 @@ EXPOSE 514/tcp
 
 CMD ["/run.sh"]
 
-HEALTHCHECK --start-period=30s --interval=30s --timeout=30s CMD /healthcheck.sh
+HEALTHCHECK --start-period=1s --interval=30s --timeout=5s CMD /healthcheck.sh
 

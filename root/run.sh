@@ -18,6 +18,6 @@ fi
 crond || exit 1
 
 # Run Maraschino in foreground
-runcmd="rsyslogd -n"
+runcmd="rsyslogd -n -i /var/run/rsyslogd.pid"
 exec ${runcmd}
 
