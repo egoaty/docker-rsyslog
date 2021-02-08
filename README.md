@@ -17,6 +17,8 @@ For your log file targets you can mount a volume/bind-mount to any location in t
 
 Messages from the rsyslogd process and cron are logged to ```stdout``` only by default. 
 
+Persistant state is kept in the VOLUME ```/state```
+
 ## Logrotate
 
 logrotate is available in the container. Mount your configuration directory to ```/etc/logrotate.d```. Logrotate runs daily.
@@ -45,6 +47,7 @@ services:
     volumes:
       - ./rsyslogd/conf.d:/etc/rsyslog.d:ro
       - ./rsyslogd/logrotate.d:/etc/logrotate.d:ro
+      - ./rsyslogd/state:/state:rw
       - /path/to/log:/log:rw
     environment:
       - PUID=1000

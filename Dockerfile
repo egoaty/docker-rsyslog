@@ -8,6 +8,8 @@ RUN \
 
 COPY root/ /
 
+VOLUME ["/state"]
+
 EXPOSE 514/udp
 EXPOSE 514/tcp
 
