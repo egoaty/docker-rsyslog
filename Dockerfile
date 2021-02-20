@@ -3,8 +3,9 @@ FROM $DISTRO
 
 
 RUN \
-  apk add --no-cache tzdata rsyslog logrotate && \
-  rm -f /etc/logrotate.d/*
+  apk add -U --no-cache tzdata rsyslog logrotate && \
+  rm -f /etc/logrotate.d/* && \
+  rm -rf /var/cache/apk/*
 
 COPY root/ /
 
