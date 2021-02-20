@@ -17,7 +17,10 @@ fi
 # Start crond in background (for logrotate)
 crond || exit 1
 
-# Run Maraschino in foreground
+# cleanup
+rm -f /var/run/rsyslogd.pid
+
+# Run rsyslogd in foreground
 runcmd="rsyslogd -n -i /var/run/rsyslogd.pid"
 exec ${runcmd}
 
