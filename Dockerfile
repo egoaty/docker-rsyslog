@@ -3,6 +3,7 @@ FROM $DISTRO
 
 
 RUN \
+  apk -U upgrade && \
   apk add -U --no-cache tzdata rsyslog logrotate && \
   rm -f /etc/logrotate.d/* && \
   rm -rf /var/cache/apk/*
